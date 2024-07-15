@@ -1,1 +1,3 @@
 example01/terraform.tfstate
+example01/.terraform/
+example01/terraform.tfstate.backup
