@@ -1,6 +1,6 @@
 module "rg" {
 
-  source = "../azure_modules_14jul/resource_group"
+  source = "../azure_modules_14jul/azurerm_resource_group"
 
   name = "${local.prefix}-rg"
 
@@ -18,7 +18,7 @@ module "vnet" {
 
   resource_group_name = module.rg.resource_group.name
 
-  location = local.location
+  location = module.rg.resource_group.location
 
   address_space = local.address_space
 
@@ -50,7 +50,8 @@ module "security_group" {
 
   resource_group_name = module.rg.resource_group.name
 
-  location = local.location
+  location = module.rg.resource_group.location
+
 
   name = each.value
 
@@ -84,7 +85,7 @@ module "nic" {
 
     resource_group_name = module.rg.resource_group.name
 
-    location = local.location
+     location = module.rg.resource_group.location
 
     name = "${local.prefix}-vnet"
 
